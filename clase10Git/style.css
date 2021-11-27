@@ -1,0 +1,213 @@
+body{
+    font-size: 15px;
+}
+
+button{
+    background-image: linear-gradient(to top, #fbc2eb 0%, #a6c1ee 100%);
+    border-radius: 13px;
+    border: 1px solid grey;
+    padding: 5px 10px;
+    font-size: 18px;
+    color: white;
+}
+
+img{
+    max-width: 100%;
+    max-height: 100%;
+}
+
+/* ACA ARRANCAN LAS DEFINICIONES DE WRAPPER*/
+
+.wrapper{
+    display: grid;
+    grid-gap: 20px;
+}
+/*ACA EDITAMOS EL TOP*/
+.top{
+    display: grid;
+    grid-template-areas: 
+    'principal principal entrada1'
+    'principal principal entrada2';
+}
+
+.principal{
+    grid-area: principal;
+    background: url(https://source.unsplash.com/random/600x200?v=2);
+    background-position:center ;
+    background-size: cover;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    box-shadow: 0 0 14px rgba(0, 0, 0, 0.5);
+
+}
+.entrada{
+    margin: 1px;
+    padding: 20px;
+    display: grid;
+    align-items: center;
+    justify-content: center;
+}
+.entrada1{
+    background-image: linear-gradient(to top, #fbc2eb 0%, #a6c1ee 100%);
+    grid-area: entrada1;
+
+}
+
+.entrada2{
+    grid-area: entrada2;
+    background-image: linear-gradient(to top, #a6c1ee 0%, #fbc2eb 100%);
+}
+
+/*ACA EDITAMOS EL MENU*/
+
+.menu ul{
+    display: grid;
+    grid-gap: 5px;
+    padding: 0;
+    list-style: none;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+}
+
+.menu a{
+    text-decoration: none;
+    background: #fbc2eb;
+    border-radius: 12px;
+    border-style: groove;
+    display: block;
+    text-align: center;
+    box-shadow: 0 0 14px rgba(0, 0, 0, 0.5);
+    text-transform: uppercase;
+    padding: 10px;
+}
+
+[aria-controls='menu-list']{
+    display: none;
+}
+
+/*ACA EDITAMOS EL FEATURE*/
+.features{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+}
+
+.feature{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    padding: 10px;
+    background: rgb(151, 247, 207);
+    margin: 5px;
+    box-shadow: 0 0 14px rgba(0, 0, 0, 0.5);
+}
+.features .icon{
+    font-size: 50px;
+    text-align: center;
+}
+
+.features p{
+    color: rgba(0, 0, 0, 0.5);
+}
+
+.features h3{
+    text-transform: uppercase;
+    font-size: 30px;
+    background: #fbc2eb;
+    display: block;
+    text-align: center;
+    padding: 10px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+/*ACA EDITAMOS EL ABOUT*/
+ 
+.about{
+    display: grid;
+    background: var(--color-cheto);
+    padding: 50px;
+    grid-template-columns: 400px 3fr;
+    grid-gap: 20px;
+    align-items: center;
+}
+
+.about video{
+    width: 100%;
+}
+
+/*ACA EDITAMOS EL ABOUT*/
+.gallery{
+    padding: 20px;
+    display: grid;
+    grid-gap: 5px;
+    grid-template-columns: repeat(auto-fit,minmax(200px, 1fr));
+
+}
+.gallery img{
+    width: 100%;
+}
+
+.gallery h2{
+    grid-template-columns: 1 / 10;
+    font-size: 30px;
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+@media (max-width: 1000px){
+    .menu{
+        order: -1;
+    }
+
+    [aria-controls='menu-list']{
+        display: block;
+        margin-bottom: 10px;
+    }
+    .menu ul{
+        transform: rotateX(90deg);
+        transition: all 1;
+        max-height: 0;
+    }
+
+    [aria-expanded='true'] ~ul{
+        display: grid;
+        max-height: 500px;
+        transform: rotateX(0);
+    } 
+
+    [aria-expanded='false'] .close{
+        display: none;
+    } 
+
+    [aria-expanded='true'] .close{
+        display: inline-block;
+    } 
+
+    [aria-expanded='true'] .open{
+        display: none;
+    } 
+}
+
+@media (max-width: 700px){
+    .top{
+        grid-template-areas: 
+        'principal principal'
+        'entrada1 entrada2';
+    }
+
+    .about{
+        grid-template-columns: 1fr;
+    }
+}
+@media (max-width: 400px){
+    .top{
+        grid-template-areas: 
+        'principal'
+        'entrada1'
+        'entrada2';
+    }
+
+}
